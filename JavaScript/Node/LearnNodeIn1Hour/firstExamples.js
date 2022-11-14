@@ -66,3 +66,9 @@ fs.readdir(dir, function(err, returnedFiles) {
    if (err) console.log("Error: " + err);
    else console.log("returned files: " + returnedFiles);
 });
+
+// ARROW NOTATION for callbacks, instead of writing function then having the arguments, we instead put an arrow between the arguments and the body of the function. Syntactical sugar
+fs.readdir(dir, (err, returnedFiles) => {
+    if (err) console.log("Error: " + err);
+    else console.log("returned files: " + returnedFiles);
+ });
