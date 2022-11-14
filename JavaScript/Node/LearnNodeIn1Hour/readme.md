@@ -1,7 +1,7 @@
-<h1>Notes</h1>
-<h2>Tutorial video:</h2>
+<h3>Tutorial video:</h3>
 https://www.youtube.com/watch?v=TlB_eWDSMt4
 
+<h3>Notes</h3>
 Node is not a lanugage, nor a framework.
 Node is a runtime environment for executing JavaScript code.
 	Browsers contain a JavaScript engine which interprets code at runtime. Chrome's one is called v8.
