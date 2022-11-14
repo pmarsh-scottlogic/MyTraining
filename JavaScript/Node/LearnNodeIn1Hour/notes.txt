@@ -30,10 +30,20 @@ Node has a module system
 In node each script, when run, becomes a module. By default things declared within the script exist only within the scope of the module (private, in OOP terms).
 At runtime the module object (accessible from within the relevant module) contains metadata about itself.
 Modules are a smart way to seperate-out code, and reuse it in other applications.
+
 At runtime, every module is secretly wrapped in the 'Module Wrapper Function'. I don't honestly understand the implications of this.
+The module wrapper function has these arguments:
+	-exports
+	-require
+	-module
+	-__filename
+	-__dirname
+My understanding is that these are attributes that are accessible about the module.
 
 Node comes with many useful modules, such as:
 	-os (operating system)
 	-fs (file system)
 	-events
 	-http
+
+Node has some real good docs: https://nodejs.org/docs/latest-v17.x/api/
