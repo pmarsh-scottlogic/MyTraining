@@ -14,3 +14,26 @@ Node is Non-blocking and Asynchronous.
 		- When the thread finds an event in the event queue, it takes it out and processes it.
 	This makes it ideal for I/O-intensive apps (but not for CPU-intensive apps).
 	This makes it very fast and scalable.
+
+The Global Object
+Functionality in regular browser-based JavaScript includes
+		-console.log();
+		-setTimeout();
+		-clearTimeout();
+		-setInterval();
+		-clearInterval();
+	These secretly belong to the window object. The JavaScript engine will prepend 'windows.' to each of these at runtime.
+	But Node doesn't have this windows object!
+Instead Node has the *Global* object, which handles these things.
+
+Node has a module system
+In node each script, when run, becomes a module. By default things declared within the script exist only within the scope of the module (private, in OOP terms).
+At runtime the module object (accessible from within the relevant module) contains metadata about itself.
+Modules are a smart way to seperate-out code, and reuse it in other applications.
+At runtime, every module is secretly wrapped in the 'Module Wrapper Function'. I don't honestly understand the implications of this.
+
+Node comes with many useful modules, such as:
+	-os (operating system)
+	-fs (file system)
+	-events
+	-http
