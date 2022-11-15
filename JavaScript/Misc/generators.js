@@ -6,6 +6,8 @@ function* greetingGenerator() {
 
     // this is the second value returned
     yield "there!";
+
+    return; // return sets the 'done' property to true, and no values can be yielded after this
 }
 
 const greetingObject = greetingGenerator(); // a call to the generator dunction returns the object which iterates though the generator
@@ -26,11 +28,9 @@ function* secondGreetingGenerator() {
     yield "How's";
     yield "it";
     yield "going?";
+    return;
 }
 
-const secondGreetingObject = secondGreetingGenerator();
-
-do {
-    state = secondGreetingObject.next();
-    console.log(state.value);
-} while(!state.done);
+for (const val of secondGreetingGenerator()) { // easier loop syntax
+    console.log(val);
+}
