@@ -67,6 +67,13 @@ let userAdmin = {
 
 // ====================================================================================================================================================
 
+// Summary:
+/*
+obj?.prop – returns obj.prop if obj exists, otherwise undefined.
+obj?.[prop] – returns obj[prop] if obj exists, otherwise undefined.
+obj.method?.() – calls obj.method() if obj.method exists, otherwise returns undefined.
+*/
+
 // Warmings:
 // Do not use ?. when logically, the intermediate value should exist!
 // Do not use ?. if it might be that the highest level variable does not exist.
