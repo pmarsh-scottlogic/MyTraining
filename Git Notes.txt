@@ -1,0 +1,46 @@
+From this really good interactive tutorial: https://learngitbranching.js.org/
+Use this to visualise branchy stuff before actually doing it!!
+
+Commits are made up of Deltas, which is information about the changes to files. Makes 'em nice and lightweight.
+
+Branching
+-git branch <name> | to make a new branch.
+-git checkout <name> | to put us on the named branch.
+-git checkout -b <name> | to make and put us on new branch in one go.
+
+A branch is simply a name that points at a specific commit. We can equalloy checkout a specific commit.
+
+Merging
+-git merge <name> | merges named branch into current branch (so that the new commit contains changes in both branches, but the named branch will still point at the previous commit.)
+
+Rebasing
+Rebasing takes a set of commits, "copies" them and plops them down somewhere else. Makes the commit history cleaner. So the new commit from the rebase will only have one parent. Makes it look as though features were developed sequencially rather than in parallel.
+-git rebase <name> | takes all commits from current branch, and plops them in sequence after in the commits in the named branch.
+
+HEAD
+The HEAD is currently checkout out commit. It is normally attached to the current branch. Instead we can attach it to a commit.
+-git checkout <commit hash> | moves the head to point at the specified commit. You only need to specify enough characters of the hash until it uniquiely identifies the commit.
+-git log | to find out commit hashes.
+-git checkout HEAD^ | move the head to its parent
+-git checkout <commit/branch name>^ | moves the head to the parent of the specified commit.
+-git checkout <commit/branch name>~<num> | moves the head to the nth ancestor of the specified commit.
+-git checkout head^ | moves the head to the parent of the current commit.
+
+Branch forcing
+-git branch -f main <commit ref> | moves (by force) the main branch to the referenced commit.
+
+Reversing Changes
+-git reset | just moves the branch backwards to a past commit. It doesn't share reversed changes with others.
+-git revert | will rverse the changes, then store the reverted state in a new commit, which can be shared remotely
+
+Cherry-Pick
+-git cherry-pick <commit1> <commit 2> <...> | Copies a set of commits to below the HEAD. This is useful for if you want to integrate some commits from a different branch, but not all of them. THe commits must not be an ancestor of HEAD.
+
+Interactive rebase
+-git rebase -i | rebase, but it opens a UI to show which commits will be rebased, also their commit hashes and messages. There are options to reorder commits, and drop certain commits, combine commits, ammend commit messages and even edit the commits themselves.
+
+Tags
+These tagas can permanently mark certain commits as "milestones", which you can reference like a branch.
+Tags cannot be moved to different commits, and they stay static even as more commits are built off them.
+-git tag <tag name> <commit ref> | assigns tag to a commit
+-git describe <commit ref> | describes head location relative to closest tag in form <closest tag>_<distance from closest tag>_g<hash of referenced commit>
