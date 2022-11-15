@@ -24,7 +24,7 @@ Functionality in regular browser-based JavaScript includes
 		-clearInterval();
 	These secretly belong to the window object. The JavaScript engine will prepend 'windows.' to each of these at runtime.
 	But Node doesn't have this windows object!
-Instead Node has the *Global* object, which handles these things.
+Instead Node has the *global* object, which handles these things.
 
 Node has a module system
 In node each script, when run, becomes a module. By default things declared within the script exist only within the scope of the module (private, in OOP terms).
