@@ -1,4 +1,6 @@
-// https://www.youtube.com/watch?v=-MTSQjw5DrM
+// words-alpha.txt courtesy of https://github.com/dwyl/english-words
+
+const words = require('words');
 
 const express = require('express');
 const app = express();
@@ -13,9 +15,8 @@ app.listen (
 
 // assign server behaviour on the particular get html command
 // app.get(endpoint URI, handler(request, response))
-app.get('/resource', (req, res) => {
+app.get('/random', (req, res) => {
     res.status(200).send({
-        message: 'hello!',
-        author: 'Peter'
+        word: words.getRandom()
     });
 });
