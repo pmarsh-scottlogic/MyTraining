@@ -6,6 +6,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+//const crypto = require('crypto');
+
 app.use(express.json()); // use json middleware! This is a middleware that parses the return body from json into an object
 
 app.listen (
@@ -19,7 +21,7 @@ app.get("/", (req, res) => {
     res.status(200).send("Hello!");
 });
 
-app.get('/word/random', (req, res) => {
+app.get('/words/random', (req, res) => {
     res.status(200).send({
         word: words.getRandomWord()
     });
@@ -40,3 +42,8 @@ app.get('/definition/[a-z]+', (req, res) => {
         res.status(200).send(definition);
     });
 });
+
+app.post('/words/favourites', (req, res) => {
+    //const id = crypto.randomBytes(16).toString("hex");
+    console.log(uuid);
+})
